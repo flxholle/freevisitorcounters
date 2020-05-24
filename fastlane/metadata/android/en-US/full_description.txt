@@ -1,1 +1,1 @@
-This app shows you a nicer presentation of the statistics and data from <a href="https://www.freevisitorcounters.com/">www.freevisitorcounters.com</a>.
+This app shows you a nicer presentation of the statistics and data from <a href="https://www.freevisitorcounters.com/">freevisitorcounters.com</a>.
