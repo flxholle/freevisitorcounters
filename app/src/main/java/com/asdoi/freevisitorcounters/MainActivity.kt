@@ -208,8 +208,6 @@ class MainActivity : AppCompatActivity() {
         dataSet.circleRadius = 4f
         dataSet.color = ContextCompat.getColor(this, R.color.colorPrimary)
         dataSet.setCircleColor(ContextCompat.getColor(this, R.color.colorAccent))
-        val drawable = ContextCompat.getDrawable(this, R.drawable.fade_line_chart)
-        dataSet.fillDrawable = drawable
 
         // create a data object with the data sets
         return LineData(dataSet)
