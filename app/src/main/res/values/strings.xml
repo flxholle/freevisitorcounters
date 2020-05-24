@@ -1,19 +1,7 @@
 <resources>
-    <string name="app_name">FreeVisitorCounters</string>
+    <string name="app_name" translatable="false">FreeVisitorCounters</string>
     <string name="refresh">Refresh</string>
-    <string name="insert_url_or_id">Insert URL or id</string>
-    <string name="overview">Overview</string>
-    <string name="since">Measurement since</string>
-    <string name="prognosis">Prognosis</string>
-    <string name="best_day">Best day</string>
-    <string name="best_day_visitors">Best day (visitors)</string>
-    <string name="visitors_overview">Visitors Overview</string>
-    <string name="today">Today</string>
-    <string name="yesterday">Yesterday</string>
-    <string name="all">All</string>
-    <string name="online">Online</string>
-    <string name="visitors_last_30_days">Visitors last 30 days</string>
+    <string name="insert_url_or_id">Insert URL or ID</string>
     <string name="no_internet_connection">No internet connection!</string>
     <string name="no_visitors_for_the_last_30_days">No visitors for the last 30 days.</string>
-    <string name="last_10_visitors">Last 10 visitors</string>
 </resources>

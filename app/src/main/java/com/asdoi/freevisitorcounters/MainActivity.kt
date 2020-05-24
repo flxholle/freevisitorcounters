@@ -1,12 +1,15 @@
 package com.asdoi.freevisitorcounters
 
+import android.app.Activity
 import android.graphics.Paint
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                     event.keyCode == KeyEvent.KEYCODE_ENTER
                 ) {
                     if (event == null || !event.isShiftPressed) {
+                        hideKeyboard(this@MainActivity)
 
                         val id = try {
                             Integer.parseInt(input.text.toString())
@@ -79,18 +83,15 @@ class MainActivity : AppCompatActivity() {
                     //Overview
                     val overviewView = layoutInflater.inflate(R.layout.overview, null)
                     val overview = visitorCounter.overview
-                    overviewView.findViewById<TextView>(R.id.title).text =
-                        getString(R.string.overview)
+                    overviewView.findViewById<TextView>(R.id.title).text = overview.title
                     overviewView.findViewById<TextView>(R.id.title).paintFlags =
                         Paint.UNDERLINE_TEXT_FLAG
-                    overviewView.findViewById<TextView>(R.id.textView1).text =
-                        getString(R.string.since)
+                    overviewView.findViewById<TextView>(R.id.textView1).text = overview.sinceTitle
                     overviewView.findViewById<TextView>(R.id.textView2).text =
-                        getString(R.string.prognosis)
-                    overviewView.findViewById<TextView>(R.id.textView3).text =
-                        getString(R.string.best_day)
+                        overview.prognosisTitle
+                    overviewView.findViewById<TextView>(R.id.textView3).text = overview.bestDayTitle
                     overviewView.findViewById<TextView>(R.id.textView4).text =
-                        getString(R.string.best_day_visitors)
+                        overview.bestDayVisitorsTitle
 
                     var df: DateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
 
@@ -108,17 +109,17 @@ class MainActivity : AppCompatActivity() {
                     val visitorsOverviewView = layoutInflater.inflate(R.layout.overview, null)
                     val visitorsOverview = visitorCounter.visitorsOverview
                     visitorsOverviewView.findViewById<TextView>(R.id.title).text =
-                        getString(R.string.visitors_overview)
+                        visitorsOverview.title
                     visitorsOverviewView.findViewById<TextView>(R.id.title).paintFlags =
                         Paint.UNDERLINE_TEXT_FLAG
                     visitorsOverviewView.findViewById<TextView>(R.id.textView1).text =
-                        getString(R.string.today)
+                        visitorsOverview.todayTitle
                     visitorsOverviewView.findViewById<TextView>(R.id.textView2).text =
-                        getString(R.string.yesterday)
+                        visitorsOverview.yesterdayTitle
                     visitorsOverviewView.findViewById<TextView>(R.id.textView3).text =
-                        getString(R.string.all)
+                        visitorsOverview.allTitle
                     visitorsOverviewView.findViewById<TextView>(R.id.textView4).text =
-                        getString(R.string.online)
+                        visitorsOverview.onlineTitle
 
                     visitorsOverviewView.findViewById<TextView>(R.id.textView11).text =
                         visitorsOverview.today.toString()
@@ -134,7 +135,7 @@ class MainActivity : AppCompatActivity() {
 
                     val chartView = layoutInflater.inflate(R.layout.line_chart, null)
                     chartView.findViewById<TextView>(R.id.title).text =
-                        getString(R.string.visitors_last_30_days)
+                        visitorCounter.last30DaysTitle
                     chartView.findViewById<TextView>(R.id.title).paintFlags =
                         Paint.UNDERLINE_TEXT_FLAG
                     val chart = chartView.findViewById<LineChart>(R.id.chart1)
@@ -157,7 +158,7 @@ class MainActivity : AppCompatActivity() {
 
                     val last10DaysView = layoutInflater.inflate(R.layout.last_10_days, null)
                     last10DaysView.findViewById<TextView>(R.id.title).text =
-                        getString(R.string.last_10_visitors)
+                        visitorCounter.last10VisitorsTitle
                     last10DaysView.findViewById<TextView>(R.id.title).paintFlags =
                         Paint.UNDERLINE_TEXT_FLAG
                     df = SimpleDateFormat("dd.MM.yyyy - hh:mm", Locale.getDefault())
@@ -221,5 +222,17 @@ class MainActivity : AppCompatActivity() {
     private fun setLastURL(value: String) {
         PreferenceManager.getDefaultSharedPreferences(this).edit().putString("last_url", value)
             .apply()
+    }
+
+    fun hideKeyboard(activity: Activity) {
+        val imm: InputMethodManager =
+            activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view: View? = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

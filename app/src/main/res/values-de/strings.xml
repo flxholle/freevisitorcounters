@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FreeVisitorCounters</string>
+    <string name="refresh">Aktualisieren</string>
+    <string name="insert_url_or_id">URL oder ID eingeben</string>
+    <string name="no_internet_connection">Keine Internetverbindung!</string>
+    <string name="no_visitors_for_the_last_30_days">Keine Besucher in den letzten 30 Tagen.</string>
+</resources>
