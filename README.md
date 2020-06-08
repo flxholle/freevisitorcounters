@@ -8,4 +8,4 @@ This is a small android app for checking the latest stats from https://www.freev
 <img src="https://gitlab.com/asdoi/freevisitorcounters/-/raw/master/fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot1.png"
       height="800">
       
-*Made by <a href="https://github.com/smichel17">smichel17</a> from <a href="https://github.com/LibreShift/red-moon">LibreShifte/red-moon</a>
+*Made by <a href="https://github.com/smichel17">smichel17</a> from <a href="https://github.com/LibreShift/red-moon">LibreShift/red-moon</a>
