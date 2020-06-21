@@ -1,6 +1,10 @@
 package com.asdoi.freevisitorcounters
 
 import android.app.Activity
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -67,12 +71,37 @@ class MainActivity : AppCompatActivity() {
         })
         input.setText(getLastURL())
         loadSite(getLastURL())
+
+        setDailyAlarm()
+    }
+
+    private fun setDailyAlarm() {
+        val calendar = Calendar.getInstance()
+        calendar[Calendar.HOUR_OF_DAY] = 12
+        calendar[Calendar.MINUTE] = 0
+        calendar[Calendar.SECOND] = 0
+        calendar[Calendar.MILLISECOND] = 0
+        val cur = Calendar.getInstance()
+        if (cur.after(calendar)) {
+            calendar.add(Calendar.DATE, 1)
+        }
+        val myIntent = Intent(this, BootReceiver::class.java)
+        val ALARM1_ID = 10000
+        val pendingIntent: PendingIntent = PendingIntent.getBroadcast(
+            this, ALARM1_ID, myIntent, PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        (getSystemService(Context.ALARM_SERVICE) as AlarmManager?)?.setRepeating(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            AlarmManager.INTERVAL_DAY,
+            pendingIntent
+        )
     }
 
     private fun loadSite(url: String) {
         Thread {
-            val visitorCounter =
-                Parser.parseWebsite(url)
+            val visitorCounter = Parser.parseWebsite(url)
             runOnUiThread {
                 findViewById<LinearLayout>(R.id.main_linear).removeAllViews()
 

@@ -5,4 +5,7 @@
     <string name="no_internet_connection">Keine Internetverbindung!</string>
     <string name="no_visitors_for_the_last_30_days">Keine Besucher in den letzten 30 Tagen.</string>
     <string name="loading">Lädt…</string>
+    <string name="new_visitors_today">Neue Besucher</string>
+    <string name="new_visitors_msg">%s  Personen haben deine Website heute besucht.
+        \n%s  Personen haben deine Website insgesamt besucht.</string>
 </resources>
