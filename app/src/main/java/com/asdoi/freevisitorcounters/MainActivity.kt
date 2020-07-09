@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.text.method.LinkMovementMethod
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
@@ -205,6 +206,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val credits = TextView(this)
             credits.setText(R.string.chart_library_credit)
             credits.setPadding(8, 30, 8, 0)
+            credits.movementMethod = LinkMovementMethod.getInstance();
             findViewById<LinearLayout>(R.id.main_linear).addView(credits)
 
 
