@@ -14,15 +14,37 @@
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="24sp" />
 
-    <RelativeLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart1"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:minHeight="300dp" />
-    </RelativeLayout>
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
+
+            <im.dacer.androidcharts.BarView
+                android:id="@+id/bar_view"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp" />
+
+            <im.dacer.androidcharts.LineView
+                android:id="@+id/line_view"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:onClick="onClick"
+        android:text="Change Design" />
 
 </LinearLayout>

@@ -7,4 +7,5 @@
     <string name="loading">Loading…</string>
     <string name="new_visitors_today">New visitors</string>
     <string name="new_visitors_msg">%s  visitors visited your website today.          %s  visitors visited your website in total.</string>
+    <string name="chart_library_credit">Charts created with <a href="https://github.com/p32929/AndroidCharts/">AndroidCharts</a> by <a href="https://github.com/HackPlan">HackPlan</a> and <a href="https://github.com/p32929">p32929</a></string>
 </resources>

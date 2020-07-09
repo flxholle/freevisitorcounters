@@ -8,4 +8,5 @@
     <string name="new_visitors_today">Neue Besucher</string>
     <string name="new_visitors_msg">%s  Personen haben deine Website heute besucht.
         \n%s  Personen haben deine Website insgesamt besucht.</string>
+    <string name="chart_library_credit">Diagramme erstellt mit <a href="https://github.com/p32929/AndroidCharts/">AndroidCharts</a> von <a href="https://github.com/HackPlan">HackPlan</a> und <a href="https://github.com/p32929">p32929</a></string>
 </resources>
