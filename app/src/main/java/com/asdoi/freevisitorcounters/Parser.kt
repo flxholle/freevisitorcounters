@@ -41,7 +41,7 @@ class VisitorsOverview(
 class Parser {
     companion object {
         fun parseWebsite(url: Int): VisitorCounter? {
-            return parseWebsite("https://www.freevisitorcounters.com/en/home/stats/id/$url")
+            return parseWebsite(Constants.getStatsUrl(url))
         }
 
         fun parseWebsite(url: String): VisitorCounter? {
@@ -108,5 +108,11 @@ class Parser {
             }
             return null
         }
+    }
+}
+
+object Constants {
+    fun getStatsUrl(id: Int): String {
+        return "https://www.freevisitorcounters.com/${Locale.getDefault().language}/home/stats/id/$id"
     }
 }

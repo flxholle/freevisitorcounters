@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.p32929:AndroidCharts:c6ac3be144@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/879b9ee0f38538063258ceda90b3b54f/jetified-AndroidCharts-c6ac3be144/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/879b9ee0f38538063258ceda90b3b54f/jetified-AndroidCharts-c6ac3be144/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f57ff9be41958db431f7eada64bd500/jetified-AndroidCharts-c6ac3be144/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9f57ff9be41958db431f7eada64bd500/jetified-AndroidCharts-c6ac3be144/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

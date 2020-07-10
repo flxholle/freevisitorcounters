@@ -3,10 +3,9 @@
     <string name="refresh">Aktualisieren</string>
     <string name="insert_url_or_id">URL oder ID eingeben</string>
     <string name="no_internet_connection">Keine Internetverbindung!</string>
-    <string name="no_visitors_for_the_last_30_days">Keine Besucher in den letzten 30 Tagen.</string>
     <string name="loading">Lädt…</string>
     <string name="new_visitors_today">Neue Besucher</string>
     <string name="new_visitors_msg">%s  Personen haben deine Website heute besucht.
         \n%s  Personen haben deine Website insgesamt besucht.</string>
-    <string name="chart_library_credit">Diagramme erstellt mit <a href="https://github.com/p32929/AndroidCharts/">AndroidCharts</a> von <a href="https://github.com/HackPlan">HackPlan</a> und <a href="https://github.com/p32929">p32929</a></string>
+    <string name="open_source_libraries">Open-Source Bibliotheken</string>
 </resources>
