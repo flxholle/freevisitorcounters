@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setDailyAlarm() {
         val calendar = Calendar.getInstance()
-        calendar[Calendar.HOUR_OF_DAY] = 12
+        calendar[Calendar.HOUR_OF_DAY] = 18
         calendar[Calendar.MINUTE] = 0
         calendar[Calendar.SECOND] = 0
         calendar[Calendar.MILLISECOND] = 0
@@ -227,9 +227,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             calendar.add(Calendar.DATE, 1)
         }
         val myIntent = Intent(this, BootReceiver::class.java)
-        val ALARM1_ID = 10000
+        val alarmID = 10000
         val pendingIntent: PendingIntent = PendingIntent.getBroadcast(
-            this, ALARM1_ID, myIntent, PendingIntent.FLAG_UPDATE_CURRENT
+            this, alarmID, myIntent, PendingIntent.FLAG_UPDATE_CURRENT
         )
 
         (getSystemService(Context.ALARM_SERVICE) as AlarmManager?)?.setRepeating(
