@@ -47,7 +47,7 @@ class Parser {
         fun parseWebsite(url: String): VisitorCounter? {
             try {
                 val doc = Jsoup.connect(url).get() ?: return null
-                val mid = doc.select("div#content")?.select(".row")!!
+                val mid = doc.select("div#content").select(".row")
 
                 val overview = Overview()
                 overview.title = mid[1].select(".table").select("tbody")[0].select("tr").text()

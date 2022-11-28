@@ -5,10 +5,9 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.Paint
+import android.os.Build
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
@@ -20,6 +19,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.preference.PreferenceManager
 import com.google.android.material.textfield.TextInputEditText
 import com.mikepenz.aboutlibraries.LibsBuilder
 import im.dacer.androidcharts.BarView
@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             LibsBuilder()
                 .withActivityTitle(getString(R.string.open_source_libraries))
                 .withAboutIconShown(true)
-                .withFields(R.string::class.java.fields)
                 .withLicenseShown(true)
                 .withAboutAppName(getString(R.string.app_name))
                 .start(this)
@@ -179,9 +178,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                     val barView = chartView.findViewById<BarView>(R.id.bar_view)
                     barView.setBottomTextList(bottom)
-                    barView.setDataList(line, line.max() as Int + 1)
-                    barView.setBarColorEmptyPart(Color.TRANSPARENT)
-                    barView.setBarColorValuePart(ContextCompat.getColor(this, R.color.colorAccent))
+                    barView.setDataList(line, line.max() + 1)
 
                     if (isLineChart()) {
                         lineView.visibility = View.VISIBLE
@@ -228,9 +225,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         val myIntent = Intent(this, BootReceiver::class.java)
         val alarmID = 10000
-        val pendingIntent: PendingIntent = PendingIntent.getBroadcast(
-            this, alarmID, myIntent, PendingIntent.FLAG_UPDATE_CURRENT
-        )
+        val pendingIntent: PendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            PendingIntent.getBroadcast(
+                this, alarmID, myIntent, PendingIntent.FLAG_IMMUTABLE
+            )
+        } else {
+            PendingIntent.getBroadcast(
+                this, alarmID, myIntent, PendingIntent.FLAG_UPDATE_CURRENT
+            )
+        }
 
         (getSystemService(Context.ALARM_SERVICE) as AlarmManager?)?.setRepeating(
             AlarmManager.RTC_WAKEUP,
