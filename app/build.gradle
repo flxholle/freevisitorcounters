@@ -5,7 +5,6 @@ apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.asdoi.freevisitorcounters"
@@ -32,6 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    namespace 'com.asdoi.freevisitorcounters'
 
 }
 
