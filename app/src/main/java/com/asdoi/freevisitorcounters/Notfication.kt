@@ -25,7 +25,7 @@ object Notification {
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     }
                     val pendingIntent: PendingIntent =
-                        PendingIntent.getActivity(context, 0, intent, 0)
+                        PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
 
                     val builder = NotificationCompat.Builder(context, CHANNEL_ID)
